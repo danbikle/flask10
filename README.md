@@ -1,6 +1,6 @@
 # README.md
 
-How to deploy this site to Ubuntu and Heroku.com
+How to deploy this site to Heroku.com and Ubuntu
 
 I created an account on the heroku.com website and memorized my password there.
 
@@ -71,5 +71,14 @@ gunicorn wsgi
 Which allows me to see the app at the URL listed below:
 
 http://0.0.0.0:8000/static/home.html
+
+On my laptop, if I want to run a server which 'auto-reloads' after each file change, I should start the server with these shell commands:
+
+```bash
+cd ~/myflask10
+export FLASK_DEBUG=1
+export FLASK_APP=flask10.py
+flask run
+```
 
 If you have questions, e-me: bikle101@gmail.com
