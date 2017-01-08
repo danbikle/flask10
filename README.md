@@ -18,13 +18,12 @@ conda install gunicorn
 ```
 
 ```bash
-sudo apt-get install ruby ruby-dev gitk
-cd ~
-rm -rf heroku-client.tgz heroku-client
-wget https://s3.amazonaws.com/assets.heroku.com/heroku-client/heroku-client.tgz
-tar zxf heroku-client.tgz
-echo 'export PATH=${HOME}/heroku-client/bin:${PATH}' >> ~/.bashrc
+rm -rf heroku heroku-client.tgz heroku-client
+wget https://cli-assets.heroku.com/branches/stable/heroku-linux-amd64.tar.gz
+tar zxf heroku-linux-amd64.tar.gz
+echo 'export PATH=${HOME}/heroku/bin:$PATH' >> ~/.bashrc
 bash
+heroku auth:login
 heroku status
 ```
 
