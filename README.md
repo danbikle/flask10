@@ -18,6 +18,7 @@ conda install gunicorn
 ```
 
 ```bash
+cd ~
 rm -rf heroku heroku-client.tgz heroku-client
 wget https://cli-assets.heroku.com/branches/stable/heroku-linux-amd64.tar.gz
 tar zxf heroku-linux-amd64.tar.gz
