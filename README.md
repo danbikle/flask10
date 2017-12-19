@@ -4,13 +4,14 @@ How to deploy this site to Heroku.com and Ubuntu
 
 I created an account on the heroku.com website and memorized my password there.
 
-Then I ran some shell commands:
+Then from a terminal, not emacs-shell, I ran some shell commands:
 
 ```bash
 cd ~
-rm -f Anaconda3-4.2.0-Linux-x86_64.sh
-wget https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh
-bash Anaconda3-4.2.0-Linux-x86_64.sh
+rm -f Anaconda*sh
+rm -rf anaconda3
+wget https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh
+bash Anaconda3-5.0.1-Linux-x86_64.sh
 mv anaconda3/bin/curl anaconda3/bin/curl_ana
 echo 'export PATH=${HOME}/anaconda3/bin:$PATH' >> ~/.bashrc
 bash
@@ -19,9 +20,10 @@ conda install gunicorn
 
 ```bash
 cd ~
-rm -rf heroku heroku-client.tgz heroku-client      heroku-linux-amd64.tar.gz
-wget https://cli-assets.heroku.com/branches/stable/heroku-linux-amd64.tar.gz
-tar zxf heroku-linux-amd64.tar.gz
+rm -rf heroku.tar.gz heroku heroku-client.tgz heroku-client heroku-linux-amd64.tar.gz
+wget https://cli-assets.heroku.com/heroku-cli/channels/stable/heroku-cli-linux-x64.tar.gz -O heroku.tar.gz
+tar xf heroku.tar.gz
+mv heroku*linux-x64 heroku
 echo 'export PATH=${HOME}/heroku/bin:$PATH' >> ~/.bashrc
 bash
 heroku auth:login
@@ -40,7 +42,6 @@ git clone https://github.com/danbikle/flask10 myflask10
 cd            myflask10
 heroku create myflask10
 git push heroku master
-heroku ps:scale web=1
 ```
 
 At that point a gunicorn webserver was running in my heroku deployment.
